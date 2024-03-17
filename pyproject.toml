@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "web3-more-bundlers"
+version = "0.1.0"
+description = "TBD"
+authors = ["Vile <111662603+vile@users.noreply.github.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+web3 = "^5.22.0"
+flashbots = "^1.1.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

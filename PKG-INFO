@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: web3-more-bundlers
+Version: 0.1.0
+Summary: TBD
+Author: Vile
+Author-email: 111662603+vile@users.noreply.github.com>
+Requires-Python: >=3.9,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: web3 (>=5.22.0,<6)
+Requires-Dist: flashbots (1.1.1)
+Description-Content-Type: text/markdown
+
+# TBD
