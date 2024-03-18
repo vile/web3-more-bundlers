@@ -12,6 +12,3 @@ def bundler(w3: Web3, signature_account: LocalAccount, endpoint_uris: list) -> N
     providers = BundlersProvider(signature_account, endpoint_uris)
     bundlers_middleware = construct_bundlers_middleware(providers)
     w3.middleware_onion.add(bundlers_middleware)
-
-    # attach modules to add the new namespace commands
-    attach_modules(w3, {"flashbots": (Flashbots,)})
