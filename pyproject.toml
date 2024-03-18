@@ -1,10 +1,11 @@
 [tool.poetry]
-name = "web3-more-bundlers"
+name = "web3morebundlers"
 version = "0.1.0"
 description = "TBD"
 authors = ["Vile <111662603+vile@users.noreply.github.com>"]
 license = "MIT"
 readme = "README.md"
+packages = [{ include = "web3morebundlers" }]
 
 [tool.poetry.dependencies]
 python = "^3.9"
