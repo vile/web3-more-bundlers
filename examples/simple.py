@@ -1,6 +1,6 @@
 """
 Minimal viable example of flashbots usage with dynamic fee transactions.
-Sends a bundle of two transactions which transfer some ETH into a random account.
+Sends a bundle of two transactions which transfer some ETH into a specified account.
 Environment Variables:
 - ETH_SENDER_KEY: Private key of account which will send the ETH.
 - ETH_RECEIVER_KEY: Private key of account which will receive ETH.
@@ -10,12 +10,10 @@ Environment Variables:
 """
 
 import os
-import secrets
 from uuid import uuid4
 
 from eth_account.account import Account
 from eth_account.signers.local import LocalAccount
-from flashbots import flashbot
 from web3 import HTTPProvider, Web3
 from web3.exceptions import TransactionNotFound
 from web3.types import TxParams
@@ -55,7 +53,15 @@ def main() -> None:
 
     w3 = Web3(HTTPProvider(env("PROVIDER_URL")))
 
-    bundler(w3=w3, signature_account=signer, endpoint_uris=BUILDER_ENPOINTS)
+    if USE_GOERLI:
+        bundler(
+            w3=w3,
+            signature_account=signer,
+            endpoint_uris=BUILDER_ENPOINTS,
+            flashbots_uri="https://relay-goerli.flashbots.net",
+        )
+    else:
+        bundler(w3=w3, signature_account=signer, endpoint_uris=BUILDER_ENPOINTS)
 
     print(f"Sender address: {sender.address}")
     print(f"Receiver address: {receiverAddress}")
@@ -104,6 +110,13 @@ def main() -> None:
         block = w3.eth.block_number
 
         replacement_uuid = str(uuid4())
+
+        try:
+            print(w3.flashbots.simulate(bundle, block))
+            print("Simulation successful")
+        except Exception as error:
+            print(f"Simulation failed, {error=}")
+            continue
 
         send_result = w3.flashbots.send_bundle(
             bundle,
