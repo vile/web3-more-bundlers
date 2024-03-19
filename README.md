@@ -4,9 +4,20 @@ This library works by injecting flashbots (`bundler`) as a new module in the Web
 
 To apply correct headers we use the `flashbot` method which injects the correct header on `POST`.
 
-> This is a superset project of [Flashbot's package](https://github.com/flashbots/web3-flashbots) for [Web3.py](https://github.com/ethereum/web3.py), and originally adapted from TitanBuilder's PR (flashbots/web3-flashbots#76). Flashbots currently only supports Web3.py version ^5.22.0 (not >=6).
+> This is a superset project of [Flashbot's package](https://github.com/flashbots/web3-flashbots) for [Web3.py](https://github.com/ethereum/web3.py), and originally adapted from TitanBuilder's PR ([flashbots/web3-flashbots#76](https://github.com/flashbots/web3-flashbots/pull/76)). Flashbots currently only supports Web3.py version ^5.22.0 (not >=6).
 
 ## Quick Start
+
+### Installing
+
+Currently, this is not a published packaged, and is easiest to install using [Poetry](https://python-poetry.org/docs/) ([pipx](https://github.com/pypa/pipx)).
+But, any package/env management solution that can install from Git/Github will work.
+
+```bash
+poetry add git+https://github.com/vile/web3-more-bundlers
+```
+
+### Example
 
 ```python
 import os
