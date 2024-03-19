@@ -1,14 +1,20 @@
 from eth_account.signers.local import LocalAccount
-from flashbots import Flashbots, flashbot
+from flashbots import flashbot
 from web3 import Web3
-from web3._utils.module import attach_modules
 
 from .bundlers_middleware import construct_bundlers_middleware
 from .bundlers_provider import BundlersProvider
+from typing import Optional, Any
 
 
-def bundler(w3: Web3, signature_account: LocalAccount, endpoint_uris: list) -> None:
-    flashbot(w3, signature_account, "https://relay.flashbots.net")
+def bundler(
+    w3: Web3,
+    signature_account: LocalAccount,
+    endpoint_uris: list,
+    flashbots_uri: Optional[Any] = None,
+) -> None:
+    _flashbots_uri = flashbots_uri or "https://relay.flashbots.net"
+    flashbot(w3, signature_account, _flashbots_uri)
     providers = BundlersProvider(signature_account, endpoint_uris)
     bundlers_middleware = construct_bundlers_middleware(providers)
     w3.middleware_onion.add(bundlers_middleware)
