@@ -1,8 +1,6 @@
 import json
 import logging
-import os
 from concurrent import futures
-from itertools import repeat
 from typing import Any, Optional, Union
 
 from eth_account import Account, messages
