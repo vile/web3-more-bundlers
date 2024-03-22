@@ -45,3 +45,24 @@ Currently, the base flashbots package only supports Goerli. To use Goerli, add t
 ```python
 bundler(w3=w3, signature_account=ETH_ACCOUNT_SIGNATURE, endpoint_uris=BUNDLER_ENDPOINTS, flashbots_uri="https://relay-goerli.flashbots.net")
 ```
+
+## Migrating
+
+Switching from the base Flashbots package to web3morebundlers is simple. This package initializes `flashbot` under the hood and exposes all existing `w3.flashbot` functions; only the initializer function needs to be changed (with an additional param).
+
+Let's migrate flashbot's quickstart example:
+```diff
+from eth_account.signers.local import LocalAccount
+from web3 import Web3, HTTPProvider
+- from flashbots import flashbot
++ from web3morebundlers import bundler
+from eth_account.account import Account
+import os
+
+ETH_ACCOUNT_SIGNATURE: LocalAccount = Account.from_key(os.environ.get("ETH_SIGNER_KEY"))
++ BUNDLER_ENDPOINTS = ["https://relay.flashbots.net", "https://rpc.titanbuilder.xyz", ...]
+
+w3 = Web3(HTTPProvider("http://localhost:8545"))
+- flashbot(w3, ETH_ACCOUNT_SIGNATURE)
++ bundler(w3=w3, signature_account=ETH_ACCOUNT_SIGNATURE, endpoint_uris=BUNDLER_ENDPOINTS)
+```
