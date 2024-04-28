@@ -2,7 +2,8 @@ name: Publish Package
 
 on:
   release:
-    types: [create]
+    types: [create, publish]
+    branches: [main]
 
 jobs:
   build:
