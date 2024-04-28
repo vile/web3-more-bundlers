@@ -1,5 +1,13 @@
 # Web3 More Bundlers
 
+![GitHub Release](https://img.shields.io/github/v/release/vile/web3-more-bundlers)
+[![Poetry](https://img.shields.io/endpoint?url=https://python-poetry.org/badge/v0.json)](https://python-poetry.org/)
+![Python Version](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2Fvile%2Fweb3-more-bundlers%2Fmaster%2Fpyproject.toml&query=%24.tool.poetry.dependencies.python&label=python)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Imports: isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336)](https://pycqa.github.io/isort/)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org)
+
+
 This library works by injecting flashbots (`bundler`) as a new module in the Web3.py instance, which allows submitting "bundles" of transactions directly to miners. This is done by also creating a middleware which captures calls to `eth_sendBundle` and `eth_callBundle`, and sends them to an RPC endpoint which you have specified, which corresponds to `mev-geth`.
 
 To apply correct headers we use the `flashbot` method which injects the correct header on `POST`.
@@ -14,7 +22,7 @@ Currently, this is not a published packaged, and is easiest to install using [Po
 But, any package/env management solution that can install from Git/Github will work.
 
 ```bash
-poetry add git+https://github.com/vile/web3-more-bundlers
+poetry add web3morebundlers
 ```
 
 ### Example
