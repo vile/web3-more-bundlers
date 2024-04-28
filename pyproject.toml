@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "web3morebundlers"
-version = "0.1.0"
+version = "0.1.1"
 description = "Superset of Flashbots' plugin for Web3.py allowing bundles to be submitted to many miners."
 authors = ["Vile <111662603+vile@users.noreply.github.com>"]
 license = "MIT"
