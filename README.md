@@ -18,8 +18,7 @@ To apply correct headers we use the `flashbot` method which injects the correct 
 
 ### Installing
 
-Currently, this is not a published packaged, and is easiest to install using [Poetry](https://python-poetry.org/docs/) ([pipx](https://github.com/pypa/pipx)).
-But, any package/env management solution that can install from Git/Github will work.
+Install package with Poetry.
 
 ```bash
 poetry add web3morebundlers
