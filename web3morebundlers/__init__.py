@@ -15,7 +15,7 @@ def bundler(
     flashbots_uri: Optional[Any] = None,
 ) -> None:
     """
-    Injects the base flashbots module and middleware, as well as bundler middleware to w3.
+    Injects the base flashbots middleware, as well as bundler middleware to w3.
     """
 
     _flashbots_uri = flashbots_uri or "https://relay.flashbots.net"
